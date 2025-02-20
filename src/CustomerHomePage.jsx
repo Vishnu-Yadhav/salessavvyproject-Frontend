@@ -22,9 +22,10 @@ export default function CustomerHomePage() {
 
   const fetchProducts = async (category = '') => {
     try {
-      const response = await fetch(
-        `http://localhost:9090/api/products${category ? `?category=${category}` : '?category=Shirts'}`, 
-        { credentials: 'include' } // Include authToken as a cookie
+      const response = await fetch(`http://localhost:9090/api/products${category ? `?category=${category}` : '?category=Shirts'}`, 
+        {
+           credentials: 'include' 
+        } // Include authToken as a cookie
       );
       const data = await response.json();
       if(data)
